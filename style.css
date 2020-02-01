@@ -1,0 +1,32 @@
+h1 {
+  color: blue;
+}
+
+#clock {
+  font-family: sans-serif;
+
+  font-size: 56px;
+  color: red;
+
+  background-color: lightblue;
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  text-align: center;
+}
+
+
+#label {
+  font-family: sans-serif;
+
+  font-size: 40px;
+  color: red;
+
+  background-color: green;
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  text-align: center;
+}
