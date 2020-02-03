@@ -9,7 +9,7 @@ function updateTime(clock, label) {
   var min = date.getMinutes();
   var sec = date.getSeconds();
 
-  var periods = [920, 1520];
+  var periods = [0, 830, 920, 1520];
 
   var time = (hour * 100) + min;
   var periodNum = 0;
@@ -27,5 +27,5 @@ function updateTime(clock, label) {
   clock.innerHTML = hour + " : " + min + " : " + sec;
   label.innerHTML = "Period " + periodNum + " " + time;
 
-  var timer = setTimeout(function(){ updateTime(clock)}, 1000 );
+  var timer = setTimeout(function(){ updateTime(clock, label) }, 1000 );
 }
