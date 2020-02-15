@@ -52,8 +52,8 @@ function updateTime(clock, label) {
   }
       
   var hoursToNextPeriod = Math.floor((periods[periodNum][0] - time)/ 100);
-  var timeDiff = periods[periodNum][0] - time;
-  var minsToNextPeriod = (timeDiff > 60) ? timeDiff - 40: timeDiff;
+  var timeDiff = periods[periodNum][0] - time - 1;
+  var minsToNextPeriod = (hour - Math.floor(periods[periodNum][0]/100) > 0) ? timeDiff - 40: timeDiff;
   var secsToNextPeriod = 60 - sec;
 
   clock.innerHTML = hoursToNextPeriod + " : " + minsToNextPeriod + " : " + secsToNextPeriod;
