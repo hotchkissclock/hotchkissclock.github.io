@@ -53,11 +53,11 @@ function updateTime(clock, label) {
       
   var hoursToNextPeriod = Math.floor((periods[periodNum][0] - time)/ 100);
   var timeDiff = periods[periodNum][0] - time - 1;
-  var minsToNextPeriod = (hour - Math.floor(periods[periodNum][0]/100) > 0) ? timeDiff - 40: timeDiff;
+  var minsToNextPeriod = (hour - Math.floor(periods[periodNum][0]/100) != 0) ? timeDiff - 40: timeDiff;
   var secsToNextPeriod = 60 - sec;
 
   clock.innerHTML = hoursToNextPeriod + " : " + minsToNextPeriod + " : " + secsToNextPeriod;
-  // label.innerHTML = "Period " + periodNum + " " + time + " " + periods[periodNum];
+  // label.innerHTML = "Period " + periodNum + " " + time + " " + periods[periodNum][0] + " " + (hour - Math.floor(periods[periodNum][0]/100) != 0);
   label.innerHTML = periods[periodNum][2];
 
   var timer = setTimeout(function(){ updateTime(clock, label) }, 1000 );
