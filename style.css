@@ -1,5 +1,9 @@
 h1 {
-  color: blue;
+  color: darkblue;
+
+  font-size: 50px;
+
+  text-align: center;
 }
 
 #clock {
