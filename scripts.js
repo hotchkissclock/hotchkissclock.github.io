@@ -12,7 +12,7 @@ function updateTime(clock, label) {
   /* Testing*/
   // hour = hour - 12;
   // var hour = 11;
-  // var min = 40;
+  // var min = 20;
   // var sec = 2;
 
   var schedule = [
@@ -38,14 +38,22 @@ function updateTime(clock, label) {
   ];
 
   var periods = schedule[day];
+  // var periods = schedule[1];
 
   var time = (hour * 100) + min;
   var periodNum = 0;
+  var passing = false;
 
   for(i = 1; i < periods.length; i++)
   {
-    if (time > periods[i-1][1] && time <= periods[i][0])
+    if (time >= periods[i-1][1] && time < periods[i][0])
     {
+      periodNum = i;
+      break;
+    }
+    else if (time >= periods[i][0] && time < periods[i][1])
+    {
+      passing = true;
       periodNum = i;
       break;
     }
@@ -55,6 +63,14 @@ function updateTime(clock, label) {
   {
     clock.innerHTML = hour + " : " + min + " : " + sec;
     label.innerHTML = "School's out";
+  }
+  else if(passing)
+  {
+    var minsToNextPeriod = periods[periodNum][1] - time - 1;
+    var secsToNextPeriod = 60 - sec;
+
+    clock.innerHTML = "0 : " + minsToNextPeriod + " : " + secsToNextPeriod;
+    label.innerHTML = "Passing";
   }
   else
   {
